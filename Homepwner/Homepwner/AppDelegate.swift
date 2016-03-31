@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  Homepwner
-//
-//  Created by Adam Carter on 3/28/16.
-//  Copyright © 2016 Adam Carter. All rights reserved.
+//  Copyright © 2015 Adam Carter
 //
 
 import UIKit
@@ -17,10 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        //Create an ItemStore
         let itemStore = ItemStore()
         
-        //Access the ItemsViewController and set its item to store
         let itemsController = window!.rootViewController as! ItemsViewController
         itemsController.itemStore = itemStore
         

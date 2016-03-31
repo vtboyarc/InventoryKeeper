@@ -1,14 +1,11 @@
 //
-//  Item.swift
-//  Homepwner
-//
-//  Created by Adam Carter on 3/28/16.
-//  Copyright © 2016 Adam Carter. All rights reserved.
+//  Copyright © 2015 Adam Carter
 //
 
-import UIKit
+import Foundation
 
 class Item: NSObject {
+    
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
@@ -16,17 +13,15 @@ class Item: NSObject {
     
     init(name: String, serialNumber: String?, valueInDollars: Int) {
         self.name = name
-        self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
+        self.valueInDollars = valueInDollars
         self.dateCreated = NSDate()
-        
-        super.init()
     }
     
     convenience init(random: Bool = false) {
         if random {
             let adjectives = ["Big", "Raunchy", "Nasty"]
-            let nouns = ["Goon", "Savage", "Beast"]
+            let nouns = ["Beast", "Savage", "Goon"]
             
             var idx = arc4random_uniform(UInt32(adjectives.count))
             let randomAdjective = adjectives[Int(idx)]
@@ -36,14 +31,16 @@ class Item: NSObject {
             
             let randomName = "\(randomAdjective) \(randomNoun)"
             let randomValue = Int(arc4random_uniform(100))
-            let randomSerialNumber = NSUUID().UUIDString.componentsSeparatedByString("-").first!
+            let randomSerialNumber =
+            NSUUID().UUIDString.componentsSeparatedByString("-").first!
             
-            self.init(name: randomName, serialNumber: randomSerialNumber, valueInDollars: randomValue)
+            self.init(name: randomName,
+                serialNumber: randomSerialNumber,
+                valueInDollars: randomValue)
         }
         else {
             self.init(name: "", serialNumber: nil, valueInDollars: 0)
         }
-        
     }
     
 }
