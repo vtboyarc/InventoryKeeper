@@ -8,11 +8,11 @@ class ItemStore {
     
     var allItems: [Item] = []
     
-    init() {
-        for _ in 0..<5 {
-            createItem()
-        }
-    }
+//    init() {
+//        for _ in 0..<5 {
+//            createItem()
+//        }
+//    }
     
     func moveItemAtIndex(fromIndex: Int, toIndex: Int) {
         if fromIndex == toIndex {
